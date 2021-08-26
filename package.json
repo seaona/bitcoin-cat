@@ -1,0 +1,23 @@
+{
+  "name": "bitcoin-cat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seaona/bitcoin-cat.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/seaona/bitcoin-cat/issues"
+  },
+  "homepage": "https://github.com/seaona/bitcoin-cat#readme",
+  "dependencies": {
+    "-": "^0.0.1",
+    "bitcoin-core": "^1.2.0"
+  }
+}
