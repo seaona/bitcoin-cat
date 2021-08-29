@@ -1,0 +1,174 @@
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Quicksand:400,300,700);
+
+html,
+body {
+  width: 100%;
+  margin: 0 auto;
+  background-color: #1c1c1c;
+  font-family: "Quicksand", sans-serif;
+  overflow: hidden;
+
+  #background {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+      z-index: -100;
+      -webkit-transform: translateX(-50%) translateY(-50%);
+      transform: translateX(-50%) translateY(-50%);
+
+      overflow: hidden;
+      -webkit-filter: blur(5px);
+      -moz-filter: blur(5px);
+      -o-filter: blur(5px);
+      -ms-filter: blur(5px);
+      filter: blur(5px);
+  }
+
+  .main {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 50%;
+      left: 50%;
+      margin: 0 auto;
+      transform: translate(-50%, -50%);
+      background: rgba(0, 0, 0, 0.5);
+
+      #content {
+          width: 100%;
+          max-width: 600px;
+          margin: 0 auto;
+          min-height: 24px;
+          height: 100%;
+          position: relative;
+          text-align: center;
+          top: 33%;
+
+          .title {
+              color: white;
+              font-family: "Quicksand", sans-serif;
+              font-size: 4rem;
+              text-transform: uppercase;
+              padding-bottom: 0px;
+              margin-bottom: 0px;
+
+              span {
+                  font-size: 4rem;
+                  cursor: pointer;
+              }
+
+              &:hover {
+                  -webkit-animation: MISSION-HOVER 1.5s infinite;
+                  -moz-animation: MISSION-HOVER 1.5s infinite;
+                  -o-animation: MISSION-HOVER 1.5s infinite;
+                  animation: MISSION-HOVER 1.5s infinite;
+                  animation-direction: alternate;
+                  animation-timing-function: ease;
+              }
+
+              @-webkit-keyframes MISSION-HOVER {
+
+                  0%,
+                  100% {
+                      font-size: 4rem;
+                      color: white;
+                  }
+
+                  50% {
+                      color: #bffcff;
+                      letter-spacing: 5px;
+                      text-shadow: 0px 0px 30px rgba(191, 252, 255, 1);
+                  }
+              }
+          }
+
+          p {
+              color: #e6dbae;
+              font-family: "Quicksand", sans-serif;
+              font-size: 1.5rem;
+              margin: 0 auto;
+              padding: 0;
+              letter-spacing: 0.5rem;
+              text-transform: uppercase;
+
+              &:last-child {
+                  font-size: 0.75rem;
+                  font-weight: 700;
+                  margin: 3em auto;
+                  padding: 0;
+                  letter-spacing: 0.1rem;
+
+                  >a {
+                      text-decoration: none;
+                      color: inherit;
+                      -moz-transition: all 0.2s ease-in;
+                      -o-transition: all 0.2s ease-in;
+                      -webkit-transition: all 0.2s ease-in;
+                      transition: all 0.2s ease-in;
+
+                      &:hover {
+                          color: #fff;
+                      }
+                  }
+              }
+          }
+
+          section {
+              color: #fff;
+              margin: 0 auto;
+              line-height: 24px;
+              font-size: 1rem;
+              font-weight: 700;
+
+              ul {
+                  list-style-type: none;
+                  margin-bottom: 0;
+                  margin-left: 0;
+
+                  li {
+                      display: inline-block;
+                      margin-right: 2rem;
+                      width: 6rem;
+                  }
+              }
+
+              .timenumbers {
+                  display: block;
+                  font-size: 1.3rem;
+                  font-weight: 400;
+                  line-height: 1.5rem;
+                  margin: 0 auto;
+                  text-align: center;
+              }
+
+              p.timedescription {
+                  font-size: 0.5rem;
+                  font-variant: small-caps;
+                  line-height: 1.5rem;
+                  margin: 0 auto;
+                  text-align: center;
+                  position: relative;
+                  top: 0px;
+              }
+          }
+      }
+  }
+}

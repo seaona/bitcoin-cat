@@ -1,55 +1,46 @@
 import React from "react";
 import axios from "axios";
+import './App.scss';
 
 class App extends React.Component {
   state = {
-    blockchainInfo: [],
-    miningInfo: {},
-    peerInfo: []
+    blockCount: "0",
+    peerInfo: "0"
   };
   componentDidMount() {
-    this.getBlockchainInfo();
-    this.getMiningInfo();
+    this.getBlockCount();
     this.getPeerInfo();
   }
-  getBlockchainInfo = () => {
+
+  getBlockCount = () => {
     axios
       .get(`/api/getblockcount`)
       .then(res => {
-        const data = res.data;
-        const result = data.result;
-        this.setState({ blockchainInfo: result });
-        console.log(this.state.blockchainInfo)
+        this.setState({ blockCount: res.data.result });
       })
       .catch(err => console.log(err));
   };
-  getMiningInfo = () => {
-    axios
-      .get(`/api/getmininginfo`)
-      .then(res => {
-        const data = res.data;
-        const result = data.result;
-        this.setState({ miningInfo: result });
-      })
-      .catch(err => console.log(err));
-  };
+
   getPeerInfo = () => {
     axios
       .get(`/api/getpeerinfo`)
       .then(res => {
-        const data = res.data;
-        const result = data.result;
-        this.setState({ peerInfo: result });
+        this.setState({ peerInfo: res.data.result });
       })
       .catch(err => console.log(err));
+
   };
   render() {
     return (
-      <div className="App">
-        <h1>Bitcoin API</h1>
-        <p>Number of blocks: {this.state.blockchainInfo.result}</p>
-        <p>Mining Difficulty: {this.state.miningInfo.difficulty}</p>
-        <p>Number of Peers: {this.state.peerInfo.length}</p>
+      <div className="main">
+        <div id="content">
+          <div className="title">Bitcoin RPC API</div>
+          <br></br>
+          <br></br>
+          <p>Número de blocs: {this.state.blockCount}</p>
+          <p>Número de nodes: {this.state.peerInfo.length}</p>
+          <p>Creat per: Terminal379</p>
+        </div>
       </div>
     );
   }
