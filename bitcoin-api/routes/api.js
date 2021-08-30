@@ -1,72 +1,45 @@
 const express = require("express");
 const router = express.Router();
-const request = require("request");
+const { requestBuilder } = require("../utils/request");
 
-const dotenv = require("dotenv");
-dotenv.config();
-
-const USER = process.env.RPC_USER;
-const PW = process.env.RPC_PASSWORD;
-
-const headers = {
-    "content-type": "text/plain;"
-}
-
+// Basic Methods without Arguments
 router.get("/getblockcount", (req,res) => {
-  var dataString = `{"jsonrpc":"1.0","id":"curltext","method":"getblockcount","params":[]}`;
-  var options = {
-    url: `http://${USER}:${PW}@127.0.0.1:18332/`,
-    method: "POST",
-    headers: headers,
-    body: dataString
-  };
-  
-  callback = (error, response, body) => {
-    if (!error && response.statusCode == 200) {
-      const data = JSON.parse(body);
-      res.send(data);
-    }
-  };
-  request(options, callback);
+  requestBuilder(req, res, "getblockcount", "[]")
 });
 
 router.get("/getpeerinfo", (req,res) => {
-  var dataString = `{"jsonrpc":"1.0","id":"curltext","method":"getpeerinfo","params":[]}`;
-  var options = {
-    url: `http://${USER}:${PW}@127.0.0.1:18332/`,
-    method: "POST",
-    headers: headers,
-    body: dataString
-  };
-  
-  callback = (error, response, body) => {
-    if (!error && response.statusCode == 200) {
-      const data = JSON.parse(body);
-      res.send(data);
-    }
-  };
-  request(options, callback);
+  requestBuilder(req, res, "getpeerinfo", "[]")
 });
 
 router.get("/getbestblockhash", (req,res) => {
-  var dataString = `{"jsonrpc":"1.0","id":"curltext","method":"getbestblockhash","params":[]}`;
-  var options = {
-    url: `http://${USER}:${PW}@127.0.0.1:18332/`,
-    method: "POST",
-    headers: headers,
-    body: dataString
-  };
-  
-  callback = (error, response, body) => {
-    if (!error && response.statusCode == 200) {
-      const data = JSON.parse(body);
-      res.send(data);
-    }
-  };
-  request(options, callback);
+  requestBuilder(req, res, "getbestblockhash", "[]")
 });
-// BASIC METHODS
-//getbestblockhash, getconnectioncount, getdifficulty, getblockchaininfo, getmininginfo, getpeerinfo, getrawmempool
+
+router.get("/getconnectioncount", (req,res) => {
+  requestBuilder(req, res, "getconnectioncount", "[]")
+});
+
+router.get("/getdifficulty", (req,res) => {
+  requestBuilder(req, res, "getdifficulty", "[]")
+});
+
+router.get("/getblockchaininfo", (req,res) => {
+  requestBuilder(req, res, "getblockchaininfo", "[]")
+});
+
+router.get("/getmininginfo", (req,res) => {
+  requestBuilder(req, res, "getmininginfo", "[]")
+});
+
+router.get("/getpeerinfo", (req,res) => {
+  requestBuilder(req, res, "getpeerinfo", "[]")
+});
+
+router.get("/getrawmempool", (req,res) => {
+  requestBuilder(req, res, "getrawmempool", "[]")
+});
+
+// Methods with Arguments
 
 // METHODS WITH ARGUMENTS
 /*
