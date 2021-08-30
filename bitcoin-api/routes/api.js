@@ -40,13 +40,21 @@ router.get("/getrawmempool", (req,res) => {
 });
 
 // Methods with Arguments
+router.get("/getblockhash", (req,res) => {
+  requestBuilder(req, res, "getblockhash", req.index)
+});
 
-// METHODS WITH ARGUMENTS
-/*
-getblockhash index 
-getblock hash
-getrawtransaction id
-decoderawtransaction hex
-*/
+router.get("/getblock", (req,res) => {
+  requestBuilder(req, res, "getblock", req.hash)
+});
+
+router.get("/getrawtransaction", (req,res) => {
+  requestBuilder(req, res, "getrawtransaction", req.id)
+});
+
+router.get("/decoderawtransaction", (req,res) => {
+  requestBuilder(req, res, "decoderawtransaction", req.hex)
+});
+
 
 module.exports = router;
