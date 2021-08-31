@@ -40,21 +40,26 @@ router.get("/getrawmempool", (req,res) => {
 });
 
 // Methods with Arguments
-router.get("/getblockhash", (req,res) => {
-  requestBuilder(req, res, "getblockhash", req.index)
+router.get("/getblockhash/:index", (req,res) => {
+  requestBuilder(req, res, "getblockhash", `[${req.params.index}]`)
 });
 
-router.get("/getblock", (req,res) => {
-  requestBuilder(req, res, "getblock", req.hash)
+router.get("/getblock/:hash", (req,res) => {
+  requestBuilder(req, res, "getblock", `[${req.params.hash}]`)
 });
 
-router.get("/getrawtransaction", (req,res) => {
-  requestBuilder(req, res, "getrawtransaction", req.id)
+
+router.get("/getrawtransaction/:hex", (req,res) => {
+  requestBuilder(req, res, "getrawtransaction", `[${req.params.hex}]`)
 });
 
 router.get("/decoderawtransaction", (req,res) => {
   requestBuilder(req, res, "decoderawtransaction", req.hex)
 });
 
+// Wallets
+router.post("/createwallet", (req,res) => {
+  requestBuilder(req, res, "createwallet", req.body.wallet)
+});
 
 module.exports = router;
