@@ -24,7 +24,7 @@ Sample:
 For running the server simply cd to the api folder and start the server:
 > cd bitcoin-api
 > 
-> npm i
+> npm ci
 >
 > npm run start
 >
@@ -37,7 +37,7 @@ Frontend is build from the base script ``create-react-app``. For running the fro
 
 > cd bitcoin-frontend
 >
-> npm i
+> npm ci
 >
 > npm run start
 >
